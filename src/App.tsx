@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from '@material-ui/core';
 import Toolbar from './components/toolbar';
 import { VideosTable } from './components/videos-table';
 import { getVideos } from './services/videos';
