@@ -1,36 +1,33 @@
 import React from 'react';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { ProcessedVideo } from '../common/interfaces';
 
 interface VideosTableProps {
-    videos: ProcessedVideo[];
+  videos: ProcessedVideo[];
 }
 
 export const VideosTable: React.FC<VideosTableProps> = ({ videos }) => {
   return (
-    <TableContainer component={Paper} style={{ marginTop: '40px' }}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Video Name</TableCell>
-            <TableCell>Author</TableCell>
-            <TableCell>Categories</TableCell>
-            <TableCell>Options</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+    <div className="table-container">
+      <table className="w-full">
+        <thead className="table-header-group">
+          <tr className="table-row">
+            <th className="font-normal">Video Name</th>
+            <th className="font-normal">Author</th>
+            <th className="font-normal">Categories</th>
+            <th className="font-normal">Options</th>
+          </tr>
+        </thead>
+        <tbody>
           {videos.map((video) => (
-            <TableRow key={video.id}>
-              <TableCell component="th" scope="row">
-                {video.name}
-              </TableCell>
-              <TableCell>{video.author}</TableCell>
-              <TableCell>{video.categories.join(', ')}</TableCell>
-              <TableCell> {/* add buttons here as needed */}  </TableCell>
-            </TableRow>
+            <tr key={video.id}>
+              <td>{video.name}</td>
+              <td>{video.author}</td>
+              <td>{video.categories.join(', ')}</td>
+              <td> {/* add buttons here as needed */} </td>
+            </tr>
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </tbody>
+      </table>
+    </div>
   );
 };
