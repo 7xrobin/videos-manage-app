@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import './table.css';
 @import './toolbar.css';
+@import './modal.css';
 @import './buttons.css';
 
 html,

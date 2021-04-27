@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color: 'blueRoyal' | 'redPink' | 'greenMoving';
 }
 
