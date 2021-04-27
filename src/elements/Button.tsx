@@ -1,18 +1,11 @@
 import React from 'react';
 
 interface ButtonProps {
-  //   type: 'edit' | 'delete';
-  color: string;
+  color: 'blueRoyal' | 'redPink';
 }
 
 const Button: React.FC<ButtonProps> = ({ children, color }) => {
-  return (
-    <>
-      {/* { type === 'edit' && ( */}
-      <div className={`border-2 border-${color}`}>{children}</div>
-      {/* )} */}
-    </>
-  );
+  return <button className={`text-${color} active:bg-${color} basic-button`}>{children}</button>;
 };
 
 export default Button;

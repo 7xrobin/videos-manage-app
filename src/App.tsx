@@ -14,14 +14,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="h-full">
       <Toolbar>
         <h6>Videos</h6>
       </Toolbar>
-      <div className="px-2 m-auto max-w-5xl">
-        <VideosTable videos={videos} />
-      </div>
-    </>
+      <VideosTable videos={videos} />
+    </div>
   );
 };
 

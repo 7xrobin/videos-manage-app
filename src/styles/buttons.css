@@ -1,0 +1,7 @@
+.basic-button {
+  @apply p-1 text-center rounded md:w-20;
+}
+
+.basic-button:active {
+  color: white;
+}

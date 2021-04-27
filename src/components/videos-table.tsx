@@ -24,12 +24,13 @@ export const VideosTable: React.FC<VideosTableProps> = ({ videos }) => {
               <td className="p-2 md:p-4">{video.name}</td>
               <td className="p-2 md:p-4">{video.author}</td>
               <td className="p-2 md:p-4">{video.categories.join(', ')}</td>
-              <td className="p-2 md:p-4">
-                {
-                  <Button color="blueRoyal">
-                    <p>Edit</p>
-                  </Button>
-                }
+              <td className="p-4 flex justify-around flex-wrap">
+                <Button color="blueRoyal">
+                  <p>Edit</p>
+                </Button>
+                <Button color="redPink">
+                  <p>Delete</p>
+                </Button>
               </td>
             </tr>
           ))}
