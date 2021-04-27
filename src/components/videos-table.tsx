@@ -4,9 +4,14 @@ import Button from '../elements/button';
 
 interface VideosTableProps {
   videos: ProcessedVideo[];
+  searchText: string;
 }
 
-export const VideosTable: React.FC<VideosTableProps> = ({ videos }) => {
+export const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText }) => {
+  const filteredVideos: ProcessedVideo[] = videos.filter((video: ProcessedVideo) =>
+    video.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <div className="table-container">
       <table className="w-full">
@@ -19,7 +24,7 @@ export const VideosTable: React.FC<VideosTableProps> = ({ videos }) => {
           </tr>
         </thead>
         <tbody>
-          {videos.map((video) => (
+          {filteredVideos.map((video) => (
             <tr key={video.id} className="table-row">
               <td className="p-2 md:p-4">{video.name}</td>
               <td className="p-2 md:p-4">{video.author}</td>

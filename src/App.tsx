@@ -3,10 +3,10 @@ import Toolbar from './components/toolbar';
 import { VideosTable } from './components/videos-table';
 import { getVideos } from './services/videos';
 import { ProcessedVideo } from './common/interfaces';
-import FloatButton from './elements/float-button';
 
 const App: React.FC = () => {
   const [videos, setVideos] = useState<ProcessedVideo[]>([]);
+  const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {
     getVideos().then((videos) => {
@@ -16,8 +16,8 @@ const App: React.FC = () => {
 
   return (
     <div className="h-full">
-      <Toolbar></Toolbar>
-      <VideosTable videos={videos} />
+      <Toolbar searchText={searchText} setSearchText={setSearchText}></Toolbar>
+      <VideosTable videos={videos} searchText={searchText} />
     </div>
   );
 };
