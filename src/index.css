@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 @import './styles/table.css';
+@import './styles/buttons.css';
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
