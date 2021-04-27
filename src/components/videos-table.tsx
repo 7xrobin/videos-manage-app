@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProcessedVideo } from '../common/interfaces';
-import Button from '../elements/Button';
+import Button from '../elements/button';
 
 interface VideosTableProps {
   videos: ProcessedVideo[];

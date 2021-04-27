@@ -1,0 +1,6 @@
+.toolbar {
+  @apply bg-blueRoyalLight shadow-sm px-5 py-3 absolute h-1/4 w-full top-0 z-0;
+}
+.toolbar-actions {
+  @apply m-auto max-w-7xl flex justify-between relative top-4 md:top-1/4;
+}

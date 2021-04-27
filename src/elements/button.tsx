@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps {
-  color: 'blueRoyal' | 'redPink';
+  color: 'blueRoyal' | 'redPink' | 'greenMoving';
 }
 
 const Button: React.FC<ButtonProps> = ({ children, color }) => {
