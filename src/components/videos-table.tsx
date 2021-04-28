@@ -5,9 +5,11 @@ import Button from '../elements/button';
 interface VideosTableProps {
   videos: ProcessedVideo[];
   searchText: string;
+  setEditVideo: Function;
+  setAddVideoOpen: Function;
 }
 
-const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText }) => {
+const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText, setEditVideo, setAddVideoOpen }) => {
   const filteredVideos: ProcessedVideo[] = videos.filter((video: ProcessedVideo) =>
     video.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -30,7 +32,12 @@ const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText }) => {
               <td className="p-2 md:p-4">{video.author}</td>
               <td className="p-2 md:p-4">{video.categories.join(', ')}</td>
               <td className="p-4 flex justify-around flex-wrap">
-                <Button color="blueRoyal">
+                <Button
+                  color="blueRoyal"
+                  onClick={() => {
+                    setEditVideo(video);
+                    setAddVideoOpen(true);
+                  }}>
                   <p>Edit</p>
                 </Button>
                 <Button color="redPink">
