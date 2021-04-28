@@ -35,7 +35,13 @@ const App: React.FC = () => {
           videos={videos}
         />
       ) : (
-        <VideosTable videos={videos} searchText={searchText} setEditVideo={setEditVideo} setAddVideoOpen={setAddVideoOpen} />
+        <VideosTable
+          videos={videos}
+          searchText={searchText}
+          setEditVideo={setEditVideo}
+          setAddVideoOpen={setAddVideoOpen}
+          setVideos={setVideos}
+        />
       )}
     </div>
   );

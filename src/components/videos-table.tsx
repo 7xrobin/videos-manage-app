@@ -7,12 +7,23 @@ interface VideosTableProps {
   searchText: string;
   setEditVideo: Function;
   setAddVideoOpen: Function;
+  setVideos: Function;
 }
 
-const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText, setEditVideo, setAddVideoOpen }) => {
+const VideosTable: React.FC<VideosTableProps> = ({ videos, setVideos, searchText, setEditVideo, setAddVideoOpen }) => {
   const filteredVideos: ProcessedVideo[] = videos.filter((video: ProcessedVideo) =>
     video.name.toLowerCase().includes(searchText.toLowerCase())
   );
+
+  function editVideo(video: ProcessedVideo) {
+    setEditVideo(video);
+    setAddVideoOpen(true);
+  }
+
+  function deleteVideo(videoId: number) {
+    const newVideos = filteredVideos.filter((item) => item.id !== videoId);
+    setVideos(newVideos);
+  }
 
   return (
     <div className="table-container">
@@ -35,12 +46,11 @@ const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText, setEditVi
                 <Button
                   color="blueRoyal"
                   onClick={() => {
-                    setEditVideo(video);
-                    setAddVideoOpen(true);
+                    editVideo(video);
                   }}>
                   <p>Edit</p>
                 </Button>
-                <Button color="redPink">
+                <Button color="redPink" onClick={() => deleteVideo(video.id)}>
                   <p>Delete</p>
                 </Button>
               </td>
