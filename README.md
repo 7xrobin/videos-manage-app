@@ -28,3 +28,11 @@ To do so, I will not use the material-ui, I will replace it for my customs compo
 - Run both the frontend and backend with:
 
 `yarn start`
+
+### Comments
+
+I know other styling frameworks and libraries, but I choose Tailwind to improve the application performance and for personal learning interest.
+
+In the end, I see that others frameworks, like styled-components, would give a better code organization, reusability, and maybe faster to develop.
+But Tailwind was quite easy to learn and use, is an interesting Utility-first approach.
+And without a doubt, has better performance than a JS styling framework.
