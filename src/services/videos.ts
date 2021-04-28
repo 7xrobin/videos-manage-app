@@ -1,12 +1,12 @@
 import { getCategories } from './categories';
 import { getAuthors } from './authors';
-import { Author, ProcessedVideo } from '../common/interfaces';
+import { Author, Category, ProcessedVideo } from '../common/interfaces';
 
-export const getVideos = (): Promise<ProcessedVideo[]> => {
+export const getVideos = (): Promise<[Category[], Author[], ProcessedVideo[]]> => {
   return Promise.all([getCategories(), getAuthors()]).then(([categories, authors]) => {
     console.log([categories, authors]);
-    let processedResult: ProcessedVideo[] = [];
-    processedResult = authors.flatMap((author: Author) =>
+    let processedVideos: ProcessedVideo[] = [];
+    processedVideos = authors.flatMap((author: Author) =>
       author.videos.map((video) => {
         let categoriesNames = categories.filter((cat) => video.catIds.includes(cat.id)).map((cat) => cat.name);
         return {
@@ -17,6 +17,6 @@ export const getVideos = (): Promise<ProcessedVideo[]> => {
         };
       })
     );
-    return processedResult;
+    return [categories, authors, processedVideos];
   });
 };

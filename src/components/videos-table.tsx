@@ -7,7 +7,7 @@ interface VideosTableProps {
   searchText: string;
 }
 
-export const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText }) => {
+const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText }) => {
   const filteredVideos: ProcessedVideo[] = videos.filter((video: ProcessedVideo) =>
     video.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -44,3 +44,5 @@ export const VideosTable: React.FC<VideosTableProps> = ({ videos, searchText }) 
     </div>
   );
 };
+
+export default VideosTable;

@@ -16,8 +16,6 @@ const Toolbar: React.FC<ToolbarProps> = ({ setAddVideoOpen, searchText, setSearc
         <SearchInput searchText={searchText} setSearchText={setSearchText} />
         <FloatButton
           onClick={() => {
-            console.log('click');
-
             setAddVideoOpen(true);
           }}>
           ADD VIDEO
