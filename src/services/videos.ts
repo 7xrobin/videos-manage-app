@@ -4,7 +4,6 @@ import { Author, Category, ProcessedVideo } from '../common/interfaces';
 
 export const getVideos = (): Promise<[Category[], Author[], ProcessedVideo[]]> => {
   return Promise.all([getCategories(), getAuthors()]).then(([categories, authors]) => {
-    console.log([categories, authors]);
     let processedVideos: ProcessedVideo[] = [];
     processedVideos = authors.flatMap((author: Author) =>
       author.videos.map((video) => {

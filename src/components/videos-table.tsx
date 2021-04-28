@@ -12,7 +12,7 @@ interface VideosTableProps {
 
 const VideosTable: React.FC<VideosTableProps> = ({ videos, setVideos, searchText, setEditVideo, setAddVideoOpen }) => {
   const filteredVideos: ProcessedVideo[] = videos.filter((video: ProcessedVideo) =>
-    video.name.toLowerCase().includes(searchText.toLowerCase())
+    video?.name?.toLowerCase().includes(searchText.toLowerCase())
   );
 
   function editVideo(video: ProcessedVideo) {
@@ -38,7 +38,7 @@ const VideosTable: React.FC<VideosTableProps> = ({ videos, setVideos, searchText
         </thead>
         <tbody>
           {filteredVideos.map((video) => (
-            <tr key={video.id} className="table-row">
+            <tr key={video.name} className="table-row">
               <td className="p-2 md:p-4">{video.name}</td>
               <td className="p-2 md:p-4">{video.author}</td>
               <td className="p-2 md:p-4">{video.categories.join(', ')}</td>

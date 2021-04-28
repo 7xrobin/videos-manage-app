@@ -66,7 +66,7 @@ const AddVideoModal: React.FC<AddVideoModalProps> = ({
           name="video-name"
           id="video-name"
           className="border-gray border-2 rounded-sm w-3/5"
-          value={video.name}
+          value={video.name || ''}
           onChange={(e) => handleChange('name', e.target.value)}
         />
       </div>
@@ -81,7 +81,7 @@ const AddVideoModal: React.FC<AddVideoModalProps> = ({
           value={video.author}
           onChange={(e) => handleChange('author', e.target.value)}>
           {authors.map((author) => (
-            <option>{author.name}</option>
+            <option key={author.id}>{author.name}</option>
           ))}
         </select>
       </div>
@@ -102,7 +102,7 @@ const AddVideoModal: React.FC<AddVideoModalProps> = ({
             )
           }>
           {categories.map((category) => (
-            <option>{category.name}</option>
+            <option key={category.id}>{category.name}</option>
           ))}
         </select>
       </div>
@@ -110,9 +110,7 @@ const AddVideoModal: React.FC<AddVideoModalProps> = ({
         <Button color="blueRoyal" onClick={() => setAddVideoOpen(false)}>
           <p className="mr-4">CANCEL</p>
         </Button>
-        <FloatButton onClick={onSave} disabled={!(video.name && video.author && video.categories)}>
-          <p>SUBMIT</p>
-        </FloatButton>
+        <FloatButton onClick={onSave}>SUBMIT</FloatButton>
       </div>
     </Modal>
   );
